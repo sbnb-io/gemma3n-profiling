@@ -1,0 +1,7 @@
+timm
+transformers>=4.53.0
+torch>=2.1
+pillow
+opencv-python
+accelerate>=0.26.0
+ipython
