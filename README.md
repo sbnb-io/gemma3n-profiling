@@ -69,11 +69,11 @@ Total runtime measured was 483 milliseconds.
 
 Initially, the trace shows the `get_image_features` function of Gemma3n ([source](https://github.com/huggingface/transformers/blob/main/src/transformers/models/gemma3n/modular_gemma3n.py#L2253)), which then calls `forward_features` in MobileNetV5 ([source](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/mobilenetv5.py#L535)), taking about 74 milliseconds.  
 
-Next, a series of `Gemma3nTextDecoderLayer` calls took 142 milliseconds.  
+Next, a series of `Gemma3nTextDecoderLayer` ([source](https://github.com/huggingface/transformers/blob/ca7e1a3756c022bf31429c452b2f313f043f32de/src/transformers/models/gemma3n/modular_gemma3n.py#L1829)) calls took 142 milliseconds.  
 
 Finally, generating the 10 tokens took approximately 244 milliseconds total, which averages around 24 milliseconds per token.  
 
-Each token generation involves a `cudaGraphLaunch` (which launches an executable graph in a stream), followed by a `cudaStreamSynchronize` (which waits for the stream’s tasks to complete).  
+Each token generation involves a [`cudaGraphLaunch`](https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__GRAPH.html#group__CUDART__GRAPH_1g1920584881db959c8c74130d79019b73) (which launches an executable graph in a stream), followed by a [`cudaStreamSynchronize`](https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__STREAM.html#group__CUDART__STREAM_1g82b5784f674c17c6df64affe618bf45e) (which waits for the stream’s tasks to complete).  
 
 The MobileNetV5 and `Gemma3nTextDecoderLayer` phases accounted for around 50% of the total runtime. However, their share would decrease significantly if more tokens are generated. For instance, generating 100 tokens would reduce their share to roughly 10%.
 
