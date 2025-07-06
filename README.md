@@ -46,6 +46,8 @@ To visualize the trace, go to [https://ui.perfetto.dev/](https://ui.perfetto.dev
 - Expand the `python3 PID` row to explore the code running on the CPU.  
 - Expand the `python3 0` (stream 7 7) row to examine code running on the GPU.
 
+![](media/gemma3n-gpu-utilization.gif)
+
 ## Profiling Notes
 
 - The Gemma 3n model is asked to describe this image: [bee.jpg](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/bee.jpg).
