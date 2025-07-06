@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Profiling Google Gemma 3n Model with PyTorch Profiler"
+authors:
+  - family-names: Ospan
+    given-names: Abylay
+date-released: 2025-07-06
+url: "https://github.com/yourusername/your-repo"
+version: "1.0"
