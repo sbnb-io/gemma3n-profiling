@@ -1,5 +1,11 @@
 # Profiling Google Gemma 3n Model Using PyTorch Profiler
 
+In this work, we profile the [Google Gemma 3n model](https://deepmind.google/models/gemma/gemma-3n/) running on an NVIDIA GPU using PyTorch Profiler, performing image-to-text generation on a sample [bee.jpg](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/bee.jpg) image. We share both the code and the raw profiling metrics so that anyone can reproduce these results, which show token generation averaging 24 milliseconds per token on our hardware and suggest there may be opportunities to further improve GPU utilization.
+
+We visualize the profiling results using https://ui.perfetto.dev/, as shown in the animated GIF below.
+
+![](media/gemma3n-gpu-utilization.gif)
+
 ## Prerequisites
 
 - Ubuntu 24.04  
@@ -45,8 +51,6 @@ To visualize the trace, go to [https://ui.perfetto.dev/](https://ui.perfetto.dev
 
 - Expand the `python3 PID` row to explore the code running on the CPU.  
 - Expand the `python3 0` (stream 7 7) row to examine code running on the GPU.
-
-![](media/gemma3n-gpu-utilization.gif)
 
 ## Profiling Notes
 
