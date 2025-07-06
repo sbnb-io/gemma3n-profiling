@@ -50,7 +50,7 @@ To visualize the trace, go to [https://ui.perfetto.dev/](https://ui.perfetto.dev
 
 ## Profiling Notes
 
-- The Gemma 3n model is asked to describe this image: [bee.jpg](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/bee.jpg).
+- In this work, we ask the Google Gemma 3n model to describe the image [bee.jpg](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/bee.jpg).
 - We limit generation to 10 tokens to keep the resulting trace file smaller and easier to analyze.
 - The script performs two runs and skips the first as a warm-up. The first run takes around 60 seconds, but subsequent runs finish in about 0.4 seconds. If you wish to profile the warm-up run, you can adjust the `warmup` and `active` arguments of `torch.profiler.schedule`.
 - For convenience, we have included the resulting `gemma3n-profiling.json` file in this repository, in case you prefer to explore the results without running the setup yourself.
