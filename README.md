@@ -73,7 +73,7 @@ To visualize the trace, go to [https://ui.perfetto.dev/](https://ui.perfetto.dev
 
 Total runtime measured was 483 milliseconds.  
 
-Initially, the trace shows the `get_image_features` function of Gemma3n ([source](https://github.com/huggingface/transformers/blob/main/src/transformers/models/gemma3n/modular_gemma3n.py#L2253)), which then calls `forward_features` in MobileNetV5 ([source](https://github.com/huggingface/pytorch-image-models/blob/main/timm/models/mobilenetv5.py#L535)), taking about 74 milliseconds.
+Initially, the trace shows the `get_image_features` function of Gemma3n ([source](https://github.com/huggingface/transformers/blob/main/src/transformers/models/gemma3n/modular_gemma3n.py#L2253)), which then calls `forward_features` in MobileNetV5 ([source](https://github.com/huggingface/pytorch-image-models/blob/446e8a84890769ca014046a62e6f94e503937020/timm/models/mobilenetv5.py#L551)), taking about 74 milliseconds.
 
 ![get_image_features function of Gemma3n](media/gemma3n-get_image_features.png)
 
